@@ -1,0 +1,18 @@
+ # README
+
+This is the project for some tools for daily training.
+
+## dictate num 
+
+It will read some numbers and you should dictate it. 
+The level means how long the number you listen. 
+Every exec will be saved in the save file, and when you correct 3 times, it will increase the number length, and when you do wrong 3 times, it will decrease number lens.
+
+[ TIPS: 2016-12-06 ]
+The first goal to me is dictate 20 long numbers, and I want to reach the goals in three months. 
+In order to got it , I need to exec 50 times one day. 
+At the start, I can remember 9-10 numbers at one time. 
+
+
+
+
