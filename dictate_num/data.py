@@ -219,10 +219,14 @@ class CData(object):
         print self.toStrEnd('day stat')
         return
 
-    def showDetail(self):
+    def showDetail(self, doCnt):
         print self.toStrHead()
         print self.toStrBegin('detail')
+        lens = len(self._history)
+        idx = 0
         for _,v in self._history.items():
-            print v.toStr()
+            idx += 1
+            if idx > lens - doCnt:
+                print v.toStr()
         print self.toStrEnd('detail')
         return

@@ -27,17 +27,18 @@ class CTrain(object):
         print "You will start on level", self._data.level
         return
 
-    def aft(self):
+    def aft(self, doCnt):
         self._data.save()
-        print "Bye ", self._data.name, ", your score is followings:"
-        self._data.showDetail()
+        print "Bye %s, finish [%3d] , your score is followings:"%(self._data.name, doCnt)
+        self._data.showDetail(doCnt)
         return
 
     def run(self):
         IsCon = True
+        idx = 1
         while IsCon:
             lvl = self._data.level
-            print "\nnow level", lvl,", Please listening..."
+            print "\n[%3d]"%( idx,), " now level", lvl,", Please listening..."
             nums = self.genNum(lvl)
             self.readNum(nums)
             d = raw_input("enter what you heard(n for exit): ")
@@ -49,9 +50,9 @@ class CTrain(object):
                 print "SUCC"
             else:
                 print "FAIL: ", nums
-            continue
+            idx += 1
 
-        return
+        return idx-1
 
 
     def genNum(self, lvl):
@@ -71,8 +72,8 @@ class CTrain(object):
 def main():
     train = CTrain()
     train.pre()
-    train.run()
-    train.aft()
+    doCnt = train.run()
+    train.aft(doCnt)
 
 
 if __name__ == "__main__":
