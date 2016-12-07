@@ -133,13 +133,12 @@ class CData(object):
             else:
                 pass
         else:
-            self._nowfail += 1
-            if self._nowfail >= self._trycnt:
+            self._nowsucc -= 1
+            if self._nowsucc <= (-1) * self._trycnt:
                 self._level -= 1
                 if self._level <1:
                     self._level = 1
                 self._nowsucc = 0
-                self._nowfail = 0
             else:
                 pass
         return self._level
