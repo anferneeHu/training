@@ -38,13 +38,15 @@ class CTrain(object):
         idx = 1
         while IsCon:
             lvl = self._data.level
-            print "\n[%3d]"%( idx,), " now level", lvl,", Please listening..."
+            k = raw_input("press any key to continue, press n for exit: ")
+            if k.lower().find(EXIT_TAG) >= 0:
+                print "End training..."
+                isCon = False
+                break
+            print "\n[%3d]"%( idx,), " now level", lvl,", Please listening and enter what you heard\n"
             nums = self.genNum(lvl)
             self.readNum(nums)
-            d = raw_input("enter what you heard(n for exit): ")
-            if d.lower().find(EXIT_TAG) >= 0:
-                IsCon = False
-                break
+            d = raw_input()
             ans,lvl = self._data.score(d, nums)
             if ans:
                 print "SUCC"
