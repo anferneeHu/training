@@ -14,11 +14,11 @@ PRE_SAVETAG='savefile_'
 #------------------------------------------------
 class CRcd(object):
     def __init__(self, usr_data, rlt):
-            self._time = time.time()
-            self._usr = usr_data
-            self._rlt = rlt
-            self._level = len(rlt)
-            self._ans = self.chk()
+        self._time = time.time()
+        self._usr = usr_data
+        self._rlt = rlt
+        self._level = len(rlt)
+        self._ans = self.chk()
     def chk(self):
         if self._usr == self._rlt:
             return True
@@ -109,7 +109,7 @@ class CData(object):
             print "load file doesn't exist.", dump_file
             return None
         else:
-            data = pickle.load(open(dump_file , 'r'))
+            data = pickle.load(open(dump_file, 'r'))
             return data
 
     #------------- record ----------------
@@ -136,7 +136,7 @@ class CData(object):
             self._nowsucc -= 1
             if self._nowsucc <= (-1) * self._trycnt:
                 self._level -= 1
-                if self._level <1:
+                if self._level < 1:
                     self._level = 1
                 self._nowsucc = 0
             else:
@@ -178,12 +178,11 @@ class CData(object):
             if day not in stat:
                 stat[day] = OrderedDict()
             if lvl not in stat[day]:
-                stat[day][lvl] = [0,0]
+                stat[day][lvl] = [0, 0]
             if ans:
                 stat[day][lvl][0] += 1
             else:
                 stat[day][lvl][1] += 1
-        
         strs = ''
         for day, st in stat.items():
             strs += '---[Day: %s]---\n'%(day,)

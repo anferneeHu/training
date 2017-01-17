@@ -5,9 +5,15 @@ __pycache__/
 
 # vi temp file
 *.swp
+tags
+*.tags
 
 # C extensions
 *.so
+
+# res path
+res/
+
 
 # Distribution / packaging
 .Python
